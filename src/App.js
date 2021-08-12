@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
+import "@fontsource/roboto";
+
+import { theme } from "./config/theme";
+import Router from "./Router";
+import { GlobalStyles } from "./styles/GlobalStyles";
+import { StyledApp } from "./styles/App.styles";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<ThemeProvider theme={theme}>
+			<GlobalStyles />
+			<StyledApp>
+				<BrowserRouter>
+					<Router />
+				</BrowserRouter>
+			</StyledApp>
+		</ThemeProvider>
+	);
 }
 
 export default App;
